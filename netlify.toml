@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/auth"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
