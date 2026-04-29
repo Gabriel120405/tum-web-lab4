@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/index.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "base.njk" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Title Heading", name: "heading", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+          - { label: "CTA Button Link", name: "ctaLink", widget: "string" }
+          
+  - name: "products"
+    label: "Products"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Order", name: "order", widget: "number" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - file: "src/_data/site.json"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Logo Text", name: "logo", widget: "string" }
+          - { label: "Company Name", name: "company", widget: "string" }
