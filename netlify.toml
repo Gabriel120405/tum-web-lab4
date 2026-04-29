@@ -8,8 +8,9 @@
 
 [[redirects]]
   from = "/admin"
-  to = "/.netlify/functions/auth"
+  to = "/admin/index.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/admin/*"
